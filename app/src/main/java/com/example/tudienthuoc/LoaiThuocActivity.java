@@ -3,6 +3,8 @@ package com.example.tudienthuoc;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,8 +12,11 @@ import android.widget.ListView;
 
 import com.example.tudienthuoc.adapter.CustomAdapter;
 import com.example.tudienthuoc.model.Thuoc;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -20,6 +25,8 @@ import java.util.ArrayList;
 public class LoaiThuocActivity extends AppCompatActivity {
     private ListView lvLoaiThuoc;
     private StorageReference mStorageRef;
+    ArrayList<Thuoc> arrThuocs = new ArrayList<>();
+    CustomAdapter customAdaper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +34,9 @@ public class LoaiThuocActivity extends AppCompatActivity {
 
 
         lvLoaiThuoc = (ListView) findViewById(R.id.lv);
-        ArrayList<Thuoc> arrThuocs = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            arrThuocs.add(new Thuoc("Loai Thuoc  "+ i, "http://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg","Đây là thuốc độc rất độc uống chết cmn mày"));
-        }
-
-        CustomAdapter customAdaper = new CustomAdapter(this, R.layout.row_listview, arrThuocs);
+        customAdaper = new CustomAdapter(this, R.layout.row_listview, arrThuocs);
         lvLoaiThuoc.setAdapter(customAdaper);
-
+        loadThuoc();
         lvLoaiThuoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -43,5 +45,37 @@ public class LoaiThuocActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void loadThuoc() {
+        arrThuocs.clear();
+        customAdaper = new CustomAdapter(this, R.layout.row_listview, arrThuocs);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("LoaiThuoc/");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot item:dataSnapshot.getChildren())
+                {
+
+                    Thuoc thuoc = new Thuoc();
+                    thuoc = item.getValue(Thuoc.class);
+                    arrThuocs.add(thuoc);
+
+                }
+
+                customAdaper.notifyDataSetChanged();
+                lvLoaiThuoc.setAdapter(customAdaper);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

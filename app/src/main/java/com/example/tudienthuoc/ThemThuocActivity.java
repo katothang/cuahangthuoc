@@ -73,7 +73,7 @@ public class ThemThuocActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                        Uri downloadUrl = taskSnapshot.getUploadSessionUri();
+                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
                         Thuoc thuoc = new Thuoc();
                         thuoc.setTenThuoc(edtTenThuoc.getText().toString());
                         thuoc.setMoTa(edtMoTa.getText().toString());

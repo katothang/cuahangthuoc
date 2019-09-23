@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeActivity extends AppCompatActivity {
 
     LinearLayout lnLoaiThuoc,lnPhongKham, lnCongTyDuoc,lnBenhVien, lnNhaThuoc, lnThuocCuaToi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         initView();
 
         //Intent intent = new Intent(HomeActivity.this,ThemThuocActivity.class);
-       // startActivity(intent);
+        //startActivity(intent);
 
         lnLoaiThuoc.setOnClickListener(new View.OnClickListener() {
             @Override

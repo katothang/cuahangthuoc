@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeActivity extends AppCompatActivity {
 
     LinearLayout lnLoaiThuoc,lnPhongKham, lnCongTyDuoc,lnBenhVien, lnNhaThuoc, lnThuocCuaToi;
@@ -15,7 +17,12 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         initView();
+
+        //Intent intent = new Intent(HomeActivity.this,ThemThuocActivity.class);
+       // startActivity(intent);
+
         lnLoaiThuoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

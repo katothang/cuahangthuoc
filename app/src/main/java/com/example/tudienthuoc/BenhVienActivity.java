@@ -19,7 +19,7 @@ public class BenhVienActivity extends AppCompatActivity {
         lvBenhVien = (ListView) findViewById(R.id.lv);
         ArrayList<Thuoc> arrThuocs = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
-            arrThuocs.add(new Thuoc("Loai Thuoc "+ i, "http://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg","abc"));
+            arrThuocs.add(new Thuoc("Bệnh viện đa khoa 1  "+ i, "http://hinhnendepnhat.net/wp-content/uploads/2017/11/Hinh-anh-dep-girl-xinh-de-thuong-nhat-nam-mau-tuat-2018.jpg","abc"));
         }
 
         CustomAdapter customAdaper = new CustomAdapter(this, R.layout.row_listview, arrThuocs);

@@ -34,4 +34,7 @@ public class Thuoc {
         this.hinhAnh = hinhAnh;
         this.moTa = moTa;
     }
+
+    public Thuoc() {
+    }
 }

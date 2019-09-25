@@ -1,7 +1,7 @@
 package com.example.tudienthuoc.model;
 
 public class Thuoc {
-    private int id;
+    private String id;
     private String tenThuoc;
     private String hinhAnh;
     private String moTa;
@@ -31,11 +31,11 @@ public class Thuoc {
         this.moTa = moTa;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

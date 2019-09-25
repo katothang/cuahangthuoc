@@ -32,7 +32,6 @@ import java.util.ArrayList;
 
 public class LoaiThuocActivity extends AppCompatActivity {
     private ListView lvLoaiThuoc;
-    private StorageReference mStorageRef;
     ArrayList<Thuoc> arrThuocs = new ArrayList<>();
     CustomAdapter customAdaper;
     @Override
@@ -54,7 +53,6 @@ public class LoaiThuocActivity extends AppCompatActivity {
         });
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -63,7 +61,7 @@ public class LoaiThuocActivity extends AppCompatActivity {
         customAdaper = new CustomAdapter(this, R.layout.row_listview, arrThuocs);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Thuoc/");
+        DatabaseReference myRef = database.getReference("LoaiThuoc/");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,7 +71,9 @@ public class LoaiThuocActivity extends AppCompatActivity {
                 {
                     Thuoc thuoc = new Thuoc();
                     thuoc = item.getValue(Thuoc.class);
+                    thuoc.setId(item.getKey());
                     arrThuocs.add(thuoc);
+
                 }
                 customAdaper.notifyDataSetChanged();
                 lvLoaiThuoc.setAdapter(customAdaper);

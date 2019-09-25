@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#D8D2D2"
-    tools:context=".HomeActivity">
+    tools:context=".ThemDuLieuActivity">
     <LinearLayout
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <LinearLayout
-            android:id="@+id/ln_thuoc"
+            android:id="@+id/ln_themloaithuoc"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:background="#94C7F0"
@@ -30,7 +30,7 @@
 
             <TextView
                 android:layout_weight="1"
-                android:text="Thuốc"
+                android:text="Thêm Loại Thuốc"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
@@ -39,7 +39,7 @@
                 android:layout_height="0dp"/>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/ln_phongkham"
+            android:id="@+id/ln_themthuoc"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:background="#94C7F0"
@@ -54,7 +54,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:layout_weight="1"
-                android:text="Phòng khám"
+                android:text="Thêm Thuốc"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
@@ -64,7 +64,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/ln_congtyduoc"
+        android:id="@+id/ln_themphongkham"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:layout_weight="1"
-                android:text="Công ty dược"
+                android:text="Thêm Phòng Khám"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
@@ -93,7 +93,7 @@
                 android:layout_height="0dp"/>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/ln_benhvien"
+            android:id="@+id/ln_themcongtyduoc"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:background="#E4A378"
@@ -108,7 +108,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:layout_weight="1"
-                android:text="Bệnh viên"
+                android:text="Thêm Công Ty Dược"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
@@ -118,7 +118,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/ln_nhathuoc"
+        android:id="@+id/ln_thembenhvien"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:layout_weight="1"
-                android:text="Nhà thuốc"
+                android:text="Thêm Bệnh Viện"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
@@ -147,7 +147,7 @@
                 android:layout_height="0dp"/>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/ln_thuoccuatoi"
+            android:id="@+id/ln_themnhathuoc"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:background="#F598C0"
@@ -162,38 +162,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:layout_weight="1"
-                android:text="Thuốc của tôi"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ln_themdl"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:background="#F598C0"
-            android:layout_margin="15dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_weight="1"
-                android:src="@drawable/iconnhathuoc"
-                android:layout_margin="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <TextView
-                android:layout_weight="1"
-                android:text="Thêm Dữ Liệu"
+                android:text="Thêm Nhà Thuốc"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"

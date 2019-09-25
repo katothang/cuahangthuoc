@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
-    LinearLayout lnLoaiThuoc,lnPhongKham, lnCongTyDuoc,lnBenhVien, lnNhaThuoc, lnThuocCuaToi;
+    LinearLayout lnLoaiThuoc,lnPhongKham, lnCongTyDuoc,lnBenhVien, lnNhaThuoc, lnThuocCuaToi,lnThemThuoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +76,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        lnThemThuoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // XỬ CHUYỂN MÀN HÌNH
+                Intent intent = new Intent(HomeActivity.this,ThemDuLieuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
@@ -85,5 +94,6 @@ public class HomeActivity extends AppCompatActivity {
         lnBenhVien = (LinearLayout) findViewById(R.id.ln_benhvien);
         lnNhaThuoc = (LinearLayout) findViewById(R.id.ln_nhathuoc);
         lnThuocCuaToi = (LinearLayout) findViewById(R.id.ln_thuoccuatoi);
+        lnThemThuoc = (LinearLayout) findViewById(R.id.ln_themdl);
     }
 }

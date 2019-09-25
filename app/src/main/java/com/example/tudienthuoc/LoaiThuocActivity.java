@@ -1,17 +1,25 @@
 package com.example.tudienthuoc;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tudienthuoc.adapter.CustomAdapter;
 import com.example.tudienthuoc.model.Thuoc;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,6 +53,9 @@ public class LoaiThuocActivity extends AppCompatActivity {
             }
         });
 
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void loadThuoc() {
@@ -52,7 +63,7 @@ public class LoaiThuocActivity extends AppCompatActivity {
         customAdaper = new CustomAdapter(this, R.layout.row_listview, arrThuocs);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("LoaiThuoc/");
+        DatabaseReference myRef = database.getReference("Thuoc/");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,13 +71,10 @@ public class LoaiThuocActivity extends AppCompatActivity {
 
                 for (DataSnapshot item:dataSnapshot.getChildren())
                 {
-
                     Thuoc thuoc = new Thuoc();
                     thuoc = item.getValue(Thuoc.class);
                     arrThuocs.add(thuoc);
-
                 }
-
                 customAdaper.notifyDataSetChanged();
                 lvLoaiThuoc.setAdapter(customAdaper);
 

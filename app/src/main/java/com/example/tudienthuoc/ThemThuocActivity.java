@@ -33,7 +33,7 @@ public class ThemThuocActivity extends AppCompatActivity {
     private Button btnThem;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef =  storage.getReferenceFromUrl("gs://tudienthuoc-d16ab.appspot.com");
-    StorageReference mountainsRef = storageRef.child(SystemClock.currentThreadTimeMillis()+"kuthang.jpg");
+    StorageReference mountainsRef = storageRef.child(SystemClock.currentThreadTimeMillis()+"consen.jpg");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
